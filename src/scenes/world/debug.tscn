@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://byntbqwq64y5w"]
+
+[ext_resource type="PackedScene" uid="uid://dw5hoonn77mtv" path="res://src/scenes/actors/player.tscn" id="1_0ucok"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7t7gy"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.985025, -0.0676543, 0.158583, 0.0311649, 0.974511, 0.222166, -0.169571, -0.213896, 0.962026, 0.792493, 4.35545, 4.21771)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_7t7gy")
+
+[node name="Player" parent="." instance=ExtResource("1_0ucok")]
