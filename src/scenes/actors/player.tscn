@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw5hoonn77mtv"]
+[gd_scene load_steps=5 format=3 uid="uid://dw5hoonn77mtv"]
 
 [ext_resource type="PackedScene" uid="uid://c7psryrqj2po" path="res://assets/models/cat.glb" id="1_ja7yk"]
 [ext_resource type="Script" path="res://src/scenes/actors/player.gd" id="1_oixsb"]
 [ext_resource type="Script" path="res://src/scenes/actors/camera.gd" id="3_7a65u"]
 
-[node name="Player" type="Node3D"]
-script = ExtResource("1_oixsb")
+[sub_resource type="BoxShape3D" id="BoxShape3D_jm14c"]
+size = Vector3(1, 1.32883, 1)
 
-[node name="cat" parent="." instance=ExtResource("1_ja7yk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.468, 0)
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_oixsb")
 
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97551, 0)
@@ -16,9 +16,17 @@ script = ExtResource("3_7a65u")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0560522, 0)
-spring_length = 2.0
+spring_length = 3.0
 margin = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="Camera/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.67094)
+current = true
 fov = 75.4106
+
+[node name="cat" parent="." instance=ExtResource("1_ja7yk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000957131, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.690007, 0)
+shape = SubResource("BoxShape3D_jm14c")
