@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dw5hoonn77mtv"]
 
-[ext_resource type="PackedScene" uid="uid://c7psryrqj2po" path="res://assets/models/cat.glb" id="1_ja7yk"]
 [ext_resource type="Script" path="res://src/scenes/actors/player.gd" id="1_oixsb"]
 [ext_resource type="Script" path="res://src/scenes/actors/camera.gd" id="3_7a65u"]
+[ext_resource type="PackedScene" uid="uid://b8w68necm3wqa" path="res://src/scenes/actors/models/cat_model.tscn" id="3_ye4u1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jm14c"]
 size = Vector3(1, 1.32883, 1)
@@ -24,9 +24,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.67094)
 current = true
 fov = 75.4106
 
-[node name="cat" parent="." instance=ExtResource("1_ja7yk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000957131, 0)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.690007, 0)
 shape = SubResource("BoxShape3D_jm14c")
+
+[node name="cat_model" parent="." instance=ExtResource("3_ye4u1")]

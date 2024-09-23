@@ -9,7 +9,7 @@ script = ExtResource("1_ar2s5")
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
 stretch = true
-stretch_shrink = 3
+stretch_shrink = 4
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
