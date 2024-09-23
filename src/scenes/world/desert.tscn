@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://uckl82ocjape"]
+[gd_scene load_steps=8 format=3 uid="uid://uckl82ocjape"]
 
 [ext_resource type="Shader" path="res://src/res/desert_terrain.gdshader" id="1_phb5j"]
 [ext_resource type="Texture2D" uid="uid://d0llbetwegovo" path="res://assets/textures/sand.jpg" id="2_56wy8"]
+[ext_resource type="Script" path="res://src/scenes/world/terrain.gd" id="3_ghdyl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_hd8pc"]
 
@@ -14,14 +15,16 @@ noise = SubResource("FastNoiseLite_hd8pc")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82ofd"]
 render_priority = 0
 shader = ExtResource("1_phb5j")
-shader_parameter/cut_factor = 0.375
-shader_parameter/border = 0.73
-shader_parameter/height = 1.075
+shader_parameter/cut_factor = 0.355
+shader_parameter/border = 0.64
+shader_parameter/height = 5.0
 shader_parameter/noise_tex = SubResource("NoiseTexture2D_osmji")
 shader_parameter/albedo_1 = ExtResource("2_56wy8")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cap5r"]
+lightmap_size_hint = Vector2i(502, 502)
 material = SubResource("ShaderMaterial_82ofd")
+add_uv2 = true
 size = Vector2(100, 100)
 subdivide_width = 100
 subdivide_depth = 100
@@ -30,3 +33,8 @@ subdivide_depth = 100
 
 [node name="Terrain" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_cap5r")
+script = ExtResource("3_ghdyl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D"]

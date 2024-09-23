@@ -4,7 +4,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yyyqw"]
 shader = ExtResource("1_arc7p")
-shader_parameter/SkyColor = Color(0.362601, 0.585253, 0.821393, 1)
+shader_parameter/skyColor = Color(0.321057, 0.585206, 0.955035, 1)
+shader_parameter/horizonColor = Color(0.285417, 0.388796, 0.896904, 1)
 
 [sub_resource type="Sky" id="Sky_dolsp"]
 sky_material = SubResource("ShaderMaterial_yyyqw")
@@ -12,6 +13,8 @@ sky_material = SubResource("ShaderMaterial_yyyqw")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_dolsp")
-ambient_light_color = Color(0.74978, 0.74978, 0.74978, 1)
-ambient_light_sky_contribution = 0.5
+ambient_light_source = 3
+ambient_light_color = Color(0.687215, 0.687215, 0.687215, 1)
+ambient_light_sky_contribution = 0.35
+tonemap_exposure = 1.1
 glow_enabled = true
