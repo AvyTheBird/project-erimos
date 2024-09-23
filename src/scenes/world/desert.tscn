@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://uckl82ocjape"]
+
+[ext_resource type="Shader" path="res://src/res/desert_terrain.gdshader" id="1_phb5j"]
+[ext_resource type="Texture2D" uid="uid://d0llbetwegovo" path="res://assets/textures/sand.jpg" id="2_56wy8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hd8pc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_osmji"]
+width = 1024
+height = 1024
+seamless = true
+noise = SubResource("FastNoiseLite_hd8pc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82ofd"]
+render_priority = 0
+shader = ExtResource("1_phb5j")
+shader_parameter/cut_factor = 0.375
+shader_parameter/border = 0.73
+shader_parameter/height = 1.075
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_osmji")
+shader_parameter/albedo_1 = ExtResource("2_56wy8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cap5r"]
+material = SubResource("ShaderMaterial_82ofd")
+size = Vector2(100, 100)
+subdivide_width = 100
+subdivide_depth = 100
+
+[node name="World" type="Node3D"]
+
+[node name="Terrain" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_cap5r")

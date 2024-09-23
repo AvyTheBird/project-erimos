@@ -2,7 +2,7 @@ extends Node3D
 
 var camera_active = false
 
-@export var sensivity = 0.0003
+@export var sensivity = 0.0001
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -26,4 +26,4 @@ func _input(event):
 		if event is InputEventMouseMotion:
 			rotate_y(rad_to_deg(-event.relative.x * sensivity))
 			$SpringArm3D.rotate_x(rad_to_deg(-event.relative.y * sensivity))
-			#$SpringArm3D.rotation.x = clamp($SpringArm3D.rotation.x, 45, -90)
+			$SpringArm3D.rotation.x = clamp($SpringArm3D.rotation.x,deg_to_rad(-80), deg_to_rad(5))
