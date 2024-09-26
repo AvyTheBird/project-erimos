@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://byntbqwq64y5w"]
 
-[ext_resource type="PackedScene" uid="uid://dw5hoonn77mtv" path="res://src/scenes/actors/player.tscn" id="1_0ucok"]
+[ext_resource type="PackedScene" uid="uid://dw5hoonn77mtv" path="res://src/scenes/actors/player/player.tscn" id="1_0ucok"]
 [ext_resource type="Environment" uid="uid://bpaqnsipwab2o" path="res://src/res/default_env.tres" id="2_yj60a"]
-[ext_resource type="PackedScene" uid="uid://uckl82ocjape" path="res://src/scenes/world/desert.tscn" id="3_ia7cc"]
+[ext_resource type="PackedScene" uid="uid://uckl82ocjape" path="res://src/scenes/world/desert/desert.tscn" id="3_ia7cc"]
 
 [node name="Debug" type="Node3D"]
 
@@ -15,6 +15,7 @@ shadow_blur = 2.304
 directional_shadow_blend_splits = true
 
 [node name="Player" parent="." instance=ExtResource("1_0ucok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.70524, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_yj60a")
