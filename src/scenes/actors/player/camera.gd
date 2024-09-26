@@ -1,11 +1,12 @@
 extends Node3D
 
 var camera_active = false
-
 @export var sensivity = 0.0001
+@export var player = NodePath()
+@export var lerp_speed = 8.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$SpringArm.spring_length = 3
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(Input.is_action_pressed("right_click")):
@@ -16,14 +17,27 @@ func _process(delta):
 		camera_active = false
 	
 	if(Input.is_action_just_pressed("wheel_up")):
-		$SpringArm3D.spring_length -= 0.5
+		$SpringArm.spring_length -= 0.5
 	if(Input.is_action_just_pressed("wheel_down")):
-		$SpringArm3D.spring_length += 0.5
-	$SpringArm3D.spring_length = clamp($SpringArm3D.spring_length, 2, 10)
+		$SpringArm.spring_length += 0.5
+	$SpringArm.spring_length = clamp($SpringArm.spring_length, 2, 10)
 
 func _input(event):
 	if camera_active:
 		if event is InputEventMouseMotion:
 			rotate_y(rad_to_deg(-event.relative.x * sensivity))
-			$SpringArm3D.rotate_x(rad_to_deg(-event.relative.y * sensivity))
-			$SpringArm3D.rotation.x = clamp($SpringArm3D.rotation.x,deg_to_rad(-80), deg_to_rad(5))
+			$SpringArm.rotate_x(rad_to_deg(-event.relative.y * sensivity))
+			$SpringArm.rotation.x = clamp($SpringArm.rotation.x,deg_to_rad(-80), deg_to_rad(5))
+
+func _physics_process(delta):
+	interpolate_camera(delta)
+
+func interpolate_camera(delta):
+	var target = get_node(player)
+	 # If there's no target, don't do anything
+	if !target:
+		return
+	
+	position.x = target.position.x
+	position.z = target.position.z
+	position.y = lerp(position.y, target.position.y, lerp_speed * delta)

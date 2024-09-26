@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://byntbqwq64y5w"]
+[gd_scene load_steps=5 format=3 uid="uid://byntbqwq64y5w"]
 
 [ext_resource type="PackedScene" uid="uid://dw5hoonn77mtv" path="res://src/scenes/actors/player/player.tscn" id="1_0ucok"]
 [ext_resource type="Environment" uid="uid://bpaqnsipwab2o" path="res://src/res/default_env.tres" id="2_yj60a"]
 [ext_resource type="PackedScene" uid="uid://uckl82ocjape" path="res://src/scenes/world/desert/desert.tscn" id="3_ia7cc"]
+[ext_resource type="PackedScene" uid="uid://280boj12olxb" path="res://src/scenes/actors/player/camera.tscn" id="4_k3bor"]
 
 [node name="Debug" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.888144, -0.454709, 0.0666391, -0.370379, -0.622374, 0.689544, -0.272067, -0.637096, -0.721172, -3.27922, 9.5982, 6.16615)
+transform = Transform3D(0.888144, -0.454709, 0.0666391, 0.322364, 0.719754, 0.614847, -0.32754, -0.52459, 0.785826, -3.27922, 9.5982, 6.16615)
 shadow_enabled = true
 shadow_normal_bias = 3.463
 shadow_opacity = 0.6
@@ -16,8 +17,13 @@ directional_shadow_blend_splits = true
 
 [node name="Player" parent="." instance=ExtResource("1_0ucok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.70524, 0)
+camera = NodePath("../Camera")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_yj60a")
 
 [node name="World" parent="." instance=ExtResource("3_ia7cc")]
+
+[node name="Camera" parent="." instance=ExtResource("4_k3bor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.72851, 0)
+player = NodePath("../Player")
