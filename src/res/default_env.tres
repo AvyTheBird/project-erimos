@@ -4,8 +4,16 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yyyqw"]
 shader = ExtResource("1_arc7p")
-shader_parameter/skyColor = Color(0.321057, 0.585206, 0.955035, 1)
-shader_parameter/horizonColor = Color(0.285417, 0.388796, 0.896904, 1)
+shader_parameter/sky_color_1 = Color(0.199244, 0.559637, 0.938081, 1)
+shader_parameter/sky_color_2 = Color(0.20883, 0.335537, 0.716724, 1)
+shader_parameter/star_base_color = Color(1, 1, 1, 1)
+shader_parameter/star_hue_offset = 0.192
+shader_parameter/star_intensity = 0.05
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.3
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
 
 [sub_resource type="Sky" id="Sky_dolsp"]
 sky_material = SubResource("ShaderMaterial_yyyqw")
@@ -13,8 +21,11 @@ sky_material = SubResource("ShaderMaterial_yyyqw")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_dolsp")
-ambient_light_source = 3
-ambient_light_color = Color(0.687215, 0.687215, 0.687215, 1)
-ambient_light_sky_contribution = 0.35
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.3
 tonemap_exposure = 1.1
 glow_enabled = true
+fog_light_color = Color(0.604272, 0.777806, 0.985874, 1)
+fog_sky_affect = 0.0
+volumetric_fog_density = 0.01
+volumetric_fog_emission = Color(0.364014, 0.639034, 0.977522, 1)

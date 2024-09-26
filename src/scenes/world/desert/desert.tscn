@@ -1,5 +1,33 @@
-[gd_scene format=3 uid="uid://uckl82ocjape"]
+[gd_scene load_steps=6 format=3 uid="uid://uckl82ocjape"]
+
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_s22qf"]
+[ext_resource type="Resource" path="res://src/scenes/world/desert/terrain_data/data.hterrain" id="2_m0vnm"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="2_sbq70"]
+[ext_resource type="Texture2D" uid="uid://d0llbetwegovo" path="res://assets/textures/sand.jpg" id="3_abcpx"]
+
+[sub_resource type="Resource" id="Resource_8vn6r"]
+script = ExtResource("2_sbq70")
+mode = 0
+textures = [[ExtResource("3_abcpx")], [null]]
 
 [node name="World" type="Node3D"]
 
-[node name="Terrain" type="MeshInstance3D" parent="."]
+[node name="HTerrain" type="Node3D" parent="."]
+script = ExtResource("1_s22qf")
+centered = true
+_terrain_data = ExtResource("2_m0vnm")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_8vn6r")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 6.0
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = true
+shader_params/u_tile_reduction = Vector4(0, 0, 0, 0)
+shader_params/u_specular = 0.5

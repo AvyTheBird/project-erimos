@@ -7,11 +7,11 @@
 [node name="Debug" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.399581, -0.670779, 0.624813, -0.905465, -0.395179, 0.154813, 0.143068, -0.627606, -0.765272, -3.27922, 9.5982, 6.16615)
+transform = Transform3D(0.888144, -0.454709, 0.0666391, -0.370379, -0.622374, 0.689544, -0.272067, -0.637096, -0.721172, -3.27922, 9.5982, 6.16615)
 shadow_enabled = true
 shadow_normal_bias = 3.463
-shadow_opacity = 0.26
-shadow_blur = 2.304
+shadow_opacity = 0.6
+shadow_blur = 5.545
 directional_shadow_blend_splits = true
 
 [node name="Player" parent="." instance=ExtResource("1_0ucok")]

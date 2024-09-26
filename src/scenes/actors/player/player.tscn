@@ -11,6 +11,12 @@ height = 1.65027
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_oixsb")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.826, 0)
+shape = SubResource("CapsuleShape3D_et4vr")
+
+[node name="cat_model" parent="." instance=ExtResource("3_ye4u1")]
+
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97551, 0)
 script = ExtResource("3_7a65u")
@@ -24,9 +30,3 @@ margin = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.67094)
 current = true
 fov = 75.4106
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.826, 0)
-shape = SubResource("CapsuleShape3D_et4vr")
-
-[node name="cat_model" parent="." instance=ExtResource("3_ye4u1")]

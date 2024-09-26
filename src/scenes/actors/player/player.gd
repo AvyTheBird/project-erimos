@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
-@export var speed = 5.0
+@export var speed = 8.0
 @export var acceleration = 8.0
-@export var jump_speed = 40.0
+@export var jump_speed = 20.0
 @export var rotation_speed = 20.0
-@export var gravity = 5.0
+@export var gravity = 1.0
 
 @onready var camera = $Camera
 @onready var model = $cat_model
@@ -27,11 +27,13 @@ func get_move(delta):
 	velocity = lerp(velocity, dir * speed, acceleration * delta)
 	
 	velocity.y -= gravity
-
+	if is_on_floor():
+		if Input.is_action_just_pressed("jump"):
+			velocity.y += jump_speed
 
 
 #Anim code
 func rotate_model():
-	if velocity.length() > 0.2:
+	if Input.get_vector("move_left","move_right","move_foward","move_backwards") != Vector2(0,0):
 		var look_direction = Vector2(velocity.z, velocity.x)
 		model.rotation.y = look_direction.angle()
