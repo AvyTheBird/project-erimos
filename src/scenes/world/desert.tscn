@@ -1,40 +1,63 @@
-[gd_scene load_steps=8 format=3 uid="uid://uckl82ocjape"]
+[gd_scene load_steps=9 format=3 uid="uid://uckl82ocjape"]
 
-[ext_resource type="Shader" path="res://src/res/desert_terrain.gdshader" id="1_phb5j"]
-[ext_resource type="Texture2D" uid="uid://d0llbetwegovo" path="res://assets/textures/sand.jpg" id="2_56wy8"]
-[ext_resource type="Script" path="res://src/scenes/world/terrain.gd" id="3_ghdyl"]
+[sub_resource type="Terrain3DStorage" id="Terrain3DStorage_2yhxk"]
+version = 0.92
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_hd8pc"]
+[sub_resource type="Gradient" id="Gradient_ieqt0"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_osmji"]
-width = 1024
-height = 1024
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6g8l8"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_obq2n"]
 seamless = true
-noise = SubResource("FastNoiseLite_hd8pc")
+color_ramp = SubResource("Gradient_ieqt0")
+noise = SubResource("FastNoiseLite_6g8l8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_82ofd"]
-render_priority = 0
-shader = ExtResource("1_phb5j")
-shader_parameter/cut_factor = 0.355
-shader_parameter/border = 0.64
-shader_parameter/height = 5.0
-shader_parameter/noise_tex = SubResource("NoiseTexture2D_osmji")
-shader_parameter/albedo_1 = ExtResource("2_56wy8")
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_jka7j"]
+_shader_parameters = {
+"blend_sharpness": 0.87,
+"height_blending": true,
+"macro_variation1": Color(1, 1, 1, 1),
+"macro_variation2": Color(1, 1, 1, 1),
+"noise1_angle": 0.0,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_obq2n"),
+"vertex_normals_distance": 128.0
+}
+show_checkered = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_cap5r"]
-lightmap_size_hint = Vector2i(502, 502)
-material = SubResource("ShaderMaterial_82ofd")
-add_uv2 = true
-size = Vector2(100, 100)
-subdivide_width = 100
-subdivide_depth = 100
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu8gx"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_ubllt"]
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_mu8gx")
+generated_type = 1
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_usict"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_ubllt")])
 
 [node name="World" type="Node3D"]
 
-[node name="Terrain" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_cap5r")
-script = ExtResource("3_ghdyl")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Terrain"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D"]
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = SubResource("Terrain3DStorage_2yhxk")
+material = SubResource("Terrain3DMaterial_jka7j")
+assets = SubResource("Terrain3DAssets_usict")
