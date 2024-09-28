@@ -3,7 +3,8 @@ extends Node3D
 var camera_active = false
 @export var sensivity = 0.0001
 @export var player = NodePath()
-@export var lerp_speed = 8.0
+@export var lerp_speed = 14.0
+@export var vertical_lerp_speed = 6.0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$SpringArm.spring_length = 3
@@ -38,6 +39,6 @@ func interpolate_camera(delta):
 	if !target:
 		return
 	
-	position.x = target.position.x
-	position.z = target.position.z
-	position.y = lerp(position.y, target.position.y, lerp_speed * delta)
+	position.x = lerp(position.x, target.position.x, lerp_speed * delta)
+	position.z = lerp(position.z, target.position.z, lerp_speed * delta)
+	position.y = lerp(position.y, target.position.y, vertical_lerp_speed * delta)

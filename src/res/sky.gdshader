@@ -70,10 +70,10 @@ vec3 hash(vec3 x) {
 vec2 voronoi(in vec3 x){
 	vec3 p = floor(x);
 	vec3 f = fract(x);
-	
+
 	float res = 100.;
 	float id = 0.;
-	
+
 	for (float k = -1.; k <= 1.; k += 1.) {
 		for (float j = -1.; j <= 1.; j += 1.) {
 			for (float i = -1.; i <= 1.; i += 1.) {
@@ -87,20 +87,20 @@ vec2 voronoi(in vec3 x){
 		    }
 		}
 	}
-	
+
 	return vec2(sqrt(res), id);
 }
 
 void sky() {
 	float color = clamp(EYEDIR.y / .2, 0.0, 1.0);
 	COLOR = mix(sky_color_2, sky_color_1, color);
-	
+
 	for (int i = 0; i < layers_count; i++) {
 		vec3 pos = EYEDIR * (layer_scale + float(i) * layer_scale_step);
 		vec2 layer = voronoi(pos);
-		
+
 		vec3 rand = hash(vec3(layer.y));
-		
+
 		#ifdef USE_TWINKLE
 			float twinkle = sin(TIME * PI * star_twinkle_speed + rand.x * TAU);
 			twinkle *= star_twinkle_intensity;
@@ -108,9 +108,9 @@ void sky() {
 		#else
 			float star = smoothstep(star_intensity, 0., layer.x);
 		#endif
-		
+
 		vec3 star_color = star * hue((COLOR + star_base_color), rand.y * star_hue_offset, 1);
-		
+
 		COLOR += star_color;
 	}
 }
