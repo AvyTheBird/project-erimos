@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://byntbqwq64y5w"]
+[gd_scene load_steps=6 format=3 uid="uid://byntbqwq64y5w"]
 
 [ext_resource type="PackedScene" uid="uid://dw5hoonn77mtv" path="res://src/scenes/actors/player/player.tscn" id="1_0ucok"]
 [ext_resource type="Environment" uid="uid://bpaqnsipwab2o" path="res://src/res/default_env.tres" id="2_yj60a"]
 [ext_resource type="PackedScene" uid="uid://uckl82ocjape" path="res://src/scenes/world/desert/desert.tscn" id="3_ia7cc"]
 [ext_resource type="PackedScene" uid="uid://280boj12olxb" path="res://src/scenes/actors/player/camera.tscn" id="4_k3bor"]
+[ext_resource type="PackedScene" uid="uid://b81b4fxdrfrwp" path="res://src/scenes/objects/resource_node.tscn" id="5_6t68e"]
 
 [node name="Debug" type="Node3D"]
 
@@ -27,3 +28,12 @@ environment = ExtResource("2_yj60a")
 [node name="Camera" parent="." instance=ExtResource("4_k3bor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.72851, 0)
 player = NodePath("../Player")
+
+[node name="ResourceNode" parent="." instance=ExtResource("5_6t68e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4754, 1.26531, 15.583)
+
+[node name="ResourceNode2" parent="." instance=ExtResource("5_6t68e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5466, 1.40764, 18.9572)
+
+[node name="ResourceNode3" parent="." instance=ExtResource("5_6t68e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1405, 1.35057, 15.2335)
