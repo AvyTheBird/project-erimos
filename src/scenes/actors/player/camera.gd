@@ -14,7 +14,7 @@ func _process(delta):
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			camera_active = true
 	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		camera_active = false
 	
 	if(Input.is_action_just_pressed("wheel_up")):

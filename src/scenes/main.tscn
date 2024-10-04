@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6bj1n0ufhk3m"]
+[gd_scene load_steps=4 format=3 uid="uid://b6bj1n0ufhk3m"]
 
 [ext_resource type="Script" path="res://src/scenes/main.gd" id="1_ar2s5"]
 [ext_resource type="PackedScene" uid="uid://byntbqwq64y5w" path="res://src/scenes/world/debug.tscn" id="1_tl1fh"]
+[ext_resource type="PackedScene" uid="uid://c6jqioebsjiq3" path="res://src/scenes/actors/player/GUI.tscn" id="3_g42n2"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_ar2s5")
@@ -16,3 +17,5 @@ size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Debug" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_tl1fh")]
+
+[node name="GUI" parent="." instance=ExtResource("3_g42n2")]

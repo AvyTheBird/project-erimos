@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6jqioebsjiq3"]
+
+[ext_resource type="Script" path="res://src/scenes/actors/player/gui.gd" id="1_gj6na"]
+
+[node name="GUI" type="Node"]
+script = ExtResource("1_gj6na")
+
+[node name="Inventory" type="Node" parent="."]
+
+[node name="Panel" type="Panel" parent="Inventory"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 647.0
+offset_bottom = 300.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GridContainer" type="GridContainer" parent="Inventory/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
