@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://q7vlrqfqco42"]
-
-[node name="ItemSlot" type="ColorRect"]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.2, 0.2, 0.2, 1)

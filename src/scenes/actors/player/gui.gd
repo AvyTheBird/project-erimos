@@ -12,4 +12,4 @@ func _process(delta):
 	
 	#Open/Close inventory
 	if Input.is_action_just_pressed("inventory"):
-		$Inventory/Panel.visible = !$Inventory/Panel.visible
+		$Inventory/InvPanel.visible = !$Inventory/InvPanel.visible
