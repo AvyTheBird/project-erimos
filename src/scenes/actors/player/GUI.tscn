@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6jqioebsjiq3"]
 
-[ext_resource type="Script" path="res://src/scenes/actors/player/gui.gd" id="1_gj6na"]
+[ext_resource type="Script" uid="uid://bdqnmj4uxf3it" path="res://src/scenes/actors/player/gui.gd" id="1_gj6na"]
 [ext_resource type="PackedScene" uid="uid://bjafvtgsfxma3" path="res://src/scenes/actors/player/inv_slot.tscn" id="2_ns8a1"]
 
 [node name="GUI" type="Node"]

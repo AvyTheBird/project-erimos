@@ -9,7 +9,7 @@ var camera_active = false
 func _ready():
 	$SpringArm.spring_length = 3
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if(Input.is_action_pressed("right_click")):
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			camera_active = true

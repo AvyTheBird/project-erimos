@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dw5hoonn77mtv"]
 
-[ext_resource type="Script" path="res://src/scenes/actors/player/player.gd" id="1_oixsb"]
+[ext_resource type="Script" uid="uid://bock7j6nshumm" path="res://src/scenes/actors/player/player.gd" id="1_oixsb"]
 [ext_resource type="PackedScene" uid="uid://b8w68necm3wqa" path="res://src/scenes/actors/models/cat_model.tscn" id="3_ye4u1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_et4vr"]

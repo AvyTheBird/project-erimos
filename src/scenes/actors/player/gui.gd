@@ -1,6 +1,6 @@
 extends Node
 
-var inv_slot = load("res://src/scenes/actors/player/item_slot.tscn")
+var inv_slot = load("res://src/scenes/actors/player/inv_slot.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,7 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	#Open/Close inventory
 	if Input.is_action_just_pressed("inventory"):
