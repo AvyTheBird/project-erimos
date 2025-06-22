@@ -3,15 +3,14 @@
 [ext_resource type="Script" uid="uid://bock7j6nshumm" path="res://src/scenes/actors/player/player.gd" id="1_oixsb"]
 [ext_resource type="PackedScene" uid="uid://b8w68necm3wqa" path="res://src/scenes/actors/models/cat_model.tscn" id="3_ye4u1"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_et4vr"]
-radius = 0.319654
-height = 1.65027
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6uvax"]
+height = 1.57691
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_oixsb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.826, 0)
-shape = SubResource("CapsuleShape3D_et4vr")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.758057, 0)
+shape = SubResource("CapsuleShape3D_6uvax")
 
 [node name="cat_model" parent="." instance=ExtResource("3_ye4u1")]

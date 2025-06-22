@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://byntbqwq64y5w"]
+[gd_scene load_steps=8 format=3 uid="uid://byntbqwq64y5w"]
 
 [ext_resource type="PackedScene" uid="uid://dw5hoonn77mtv" path="res://src/scenes/actors/player/player.tscn" id="1_0ucok"]
 [ext_resource type="Environment" uid="uid://bpaqnsipwab2o" path="res://src/res/default_env.tres" id="2_yj60a"]
-[ext_resource type="PackedScene" uid="uid://uckl82ocjape" path="res://src/scenes/world/desert/desert.tscn" id="3_ia7cc"]
 [ext_resource type="PackedScene" uid="uid://280boj12olxb" path="res://src/scenes/actors/player/camera.tscn" id="4_k3bor"]
 [ext_resource type="PackedScene" uid="uid://b81b4fxdrfrwp" path="res://src/scenes/objects/resource_node.tscn" id="5_6t68e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xtiem"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtiem"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bkhdc"]
+size = Vector3(100, 1, 100)
 
 [node name="Debug" type="Node3D"]
 
@@ -17,23 +25,31 @@ shadow_blur = 5.545
 directional_shadow_blend_splits = true
 
 [node name="Player" parent="." instance=ExtResource("1_0ucok")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.70524, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.2878, 0)
 camera = NodePath("../Camera")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_yj60a")
-
-[node name="World" parent="." instance=ExtResource("3_ia7cc")]
 
 [node name="Camera" parent="." instance=ExtResource("4_k3bor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.72851, 0)
 player = NodePath("../Player")
 
 [node name="ResourceNode" parent="." instance=ExtResource("5_6t68e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4754, 1.26531, 15.583)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4754, 0.552877, 15.583)
 
 [node name="ResourceNode2" parent="." instance=ExtResource("5_6t68e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5466, 1.40764, 18.9572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5466, 0.732187, 18.9572)
 
 [node name="ResourceNode3" parent="." instance=ExtResource("5_6t68e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1405, 1.35057, 15.2335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1405, 0.691495, 15.2335)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_xtiem")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_overlay = SubResource("StandardMaterial3D_xtiem")
+mesh = SubResource("BoxMesh_bkhdc")
+skeleton = NodePath("../CollisionShape3D")

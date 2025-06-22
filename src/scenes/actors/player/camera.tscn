@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://gbhei6tq0g40" path="res://src/scenes/actors/player/camera.gd" id="1_vyofq"]
 
 [node name="Camera" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97551, 0)
 script = ExtResource("1_vyofq")
 
 [node name="SpringArm" type="SpringArm3D" parent="."]
