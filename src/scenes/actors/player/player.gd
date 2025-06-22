@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-@export var speed = 5.0
+@export var speed = 6.0
 @export var acceleration = 6.0
-@export var jump_speed = 15.0
+@export var jump_speed = 10.0
 @export var rotation_speed = 20.0
 @export var gravity = .8
 @export var camera = NodePath()

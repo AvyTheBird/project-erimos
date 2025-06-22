@@ -6,6 +6,7 @@
 script = ExtResource("1_vyofq")
 
 [node name="SpringArm" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.791738, -8.21948e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+collision_mask = 0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm"]

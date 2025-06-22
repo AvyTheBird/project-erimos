@@ -13,7 +13,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	if(Input.is_action_pressed("right_click")):
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			camera_active = true
@@ -45,7 +45,6 @@ func interpolate_camera(delta):
 	 # If there's no target, don't do anything
 	if !target:
 		return
-		
 	position.x = lerp(position.x, target.position.x, lerp_speed * delta)
 	position.z = lerp(position.z, target.position.z, lerp_speed * delta)
-	#position.y = lerp(position.y, target.position.y, lerp_speed * delta)
+	position.y = lerp(position.y, target.position.y, vertical_lerp_speed * delta)
