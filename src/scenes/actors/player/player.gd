@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var rotation_speed = 20.0
 @export var gravity = .8
 @export var camera = NodePath()
+@export var inventory: Resource
 
 @onready var model = $cat_model
 
@@ -31,7 +32,6 @@ func get_move(delta):
 			velocity.y += jump_speed
 	else:
 		velocity.y -= gravity
-		print(velocity.y)
 
 
 #Animation code. Self explanatory.

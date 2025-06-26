@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6jqioebsjiq3"]
+
+[ext_resource type="Texture2D" uid="uid://df1hojp7bvr84" path="res://assets/gui/inv.png" id="1_3cw7p"]
+[ext_resource type="Script" uid="uid://tlpe5o3ghsfs" path="res://src/scenes/actors/player/GUI/gui.gd" id="1_vl3m5"]
+[ext_resource type="PackedScene" uid="uid://bh38p5hta4qd1" path="res://src/scenes/actors/player/GUI/inv_slot.tscn" id="3_4xicv"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vl3m5")
+
+[node name="InvGUI" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="InvGUI"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 35.0
+offset_right = 402.0
+offset_bottom = 314.0
+texture = ExtResource("1_3cw7p")
+patch_margin_left = 50
+patch_margin_top = 50
+patch_margin_right = 50
+patch_margin_bottom = 50
+
+[node name="GridContainer" type="GridContainer" parent="InvGUI/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -80.5
+offset_right = 111.5
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 60
+theme_override_constants/v_separation = 60
+columns = 4
+
+[node name="InvSlot" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot2" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot3" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot4" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot5" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot6" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot7" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot8" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot9" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot10" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot11" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2
+
+[node name="InvSlot12" parent="InvGUI/NinePatchRect/GridContainer" instance=ExtResource("3_4xicv")]
+layout_mode = 2

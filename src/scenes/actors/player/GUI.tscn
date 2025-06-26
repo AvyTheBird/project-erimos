@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6jqioebsjiq3"]
-
-[ext_resource type="Script" uid="uid://bdqnmj4uxf3it" path="res://src/scenes/actors/player/gui.gd" id="1_gj6na"]
-
-[node name="GUI" type="Node"]
-script = ExtResource("1_gj6na")

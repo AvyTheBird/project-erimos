@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw5hoonn77mtv"]
+[gd_scene load_steps=5 format=3 uid="uid://dw5hoonn77mtv"]
 
 [ext_resource type="Script" uid="uid://bock7j6nshumm" path="res://src/scenes/actors/player/player.gd" id="1_oixsb"]
+[ext_resource type="Resource" uid="uid://bija6ccthfwiq" path="res://src/scenes/actors/player/inventory.tres" id="2_anpfw"]
 [ext_resource type="PackedScene" uid="uid://b8w68necm3wqa" path="res://src/scenes/actors/models/cat_model.tscn" id="3_ye4u1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6uvax"]
@@ -8,6 +9,7 @@ height = 1.57691
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_oixsb")
+inventory = ExtResource("2_anpfw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.758057, 0)

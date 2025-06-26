@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MaterialItem" load_steps=2 format=3 uid="uid://ceyouhywmd3o7"]
+
+[ext_resource type="Script" uid="uid://b4fsaylv2v63k" path="res://src/res/data/material_item.gd" id="1_gdt2d"]
+
+[resource]
+script = ExtResource("1_gdt2d")
+type = 0
+name = "Salt Stone"
+maxStack = 99
+rarity = 0
+metadata/_custom_type_script = "uid://b4fsaylv2v63k"
