@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Inventory" load_steps=3 format=3 uid="uid://bija6ccthfwiq"]
 
-[ext_resource type="Script" uid="uid://cdty7m03gql70" path="res://src/res/data/item.gd" id="1_3m43q"]
+[ext_resource type="Script" uid="uid://cdty7m03gql70" path="res://src/res/items/item.gd" id="1_3m43q"]
 [ext_resource type="Script" uid="uid://buu0m3wxplwoy" path="res://src/scenes/actors/player/inventory.gd" id="2_idt17"]
 
 [resource]

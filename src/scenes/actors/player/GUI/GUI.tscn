@@ -16,10 +16,10 @@ offset_bottom = 40.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="InvGUI"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 35.0
-offset_right = 402.0
-offset_bottom = 314.0
+offset_left = 61.0
+offset_top = 49.0
+offset_right = 431.0
+offset_bottom = 319.0
 texture = ExtResource("1_3cw7p")
 patch_margin_left = 50
 patch_margin_top = 50
